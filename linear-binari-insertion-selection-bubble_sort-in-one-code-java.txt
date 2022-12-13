@@ -1,0 +1,171 @@
+package algorithm;
+
+import java.util.Scanner;
+
+class lenear {
+public void search(){
+    int n, key, arr[];
+    Scanner sc = new Scanner(System.in);
+    System.out.println("enter lenear number");
+    n=sc.nextInt();
+    arr=new int[n];
+    System.out.println("enter " +n +" numbers");
+    for(int i=0;i<n;i++){
+    arr[i]=sc.nextInt();
+    }
+    System.out.println("Search");
+    key=sc.nextInt();
+    for(int i=0;i<n;i++){
+    if (arr[i]==key){
+     System.out.println(key +" er location "+(i+1));
+     break;
+    }
+    else if (arr[i]==n){
+    System.out.println("Not found");
+    }
+    }
+    
+}
+}
+class binary{
+public void bin(){
+    int L,R,M,n,key,arr[];
+    
+    Scanner sc = new Scanner(System.in);
+    System.out.println("enter binary element");
+    n=sc.nextInt();
+   
+    arr=new int[n];
+    
+    System.out.println("enter " +n +" numbers");
+   for(int i =0;i<n;i++){
+    arr[i]=sc.nextInt();
+    }
+   L=0;
+   R=n-1;
+   System.out.println("Search");
+   key=sc.nextInt();
+   while(L<=R){
+   M=(L+R)/2;
+   if (arr[M]==key){
+   System.out.println(key+ " location " +(M+1));
+   break;
+   }
+   else if(arr[M]<key){
+   L=M+1;
+   }
+   else if(arr[M]>key){ 
+    R=M-1;
+   }
+   else
+       System.out.println("Not Found");
+       
+   }
+   
+}
+}
+class selection{
+public void sel(){
+int arr[],n,min,temp;
+Scanner sc = new Scanner(System.in);
+System.out.println("enter selection element");
+n=sc.nextInt();
+arr=new int[n];
+System.out.println("enter " +n +" numbers");
+for(int k=0;k<n;k++){
+arr[k]=sc.nextInt();
+}
+System.out.println("Sorted number");
+for(int i=0;i<=n-1;i++){
+min=i;
+for(int j=i+1;j<n;j++){
+if(arr[j]<arr[min]){
+min=j;
+}
+}
+if(min!=i){
+temp=arr[i];
+arr[i]=arr[min];
+arr[min]=temp;
+}
+
+System.out.println(arr[i]);
+}
+}
+}
+class insertion{
+public void insr(){
+int n,temp,arr[];
+Scanner sc =new Scanner (System.in);
+System.out.println("enter insertion element");
+n=sc.nextInt();
+arr=new int[n];
+System.out.println("enter " +n +" numbers");
+for(int k=0;k<n;k++){
+arr[k]=sc.nextInt();
+}
+System.out.println("Sorted numbers");
+for(int i=1;i<n;i++){
+temp=arr[i];
+int j=i-1;
+while(j>=0 && arr[j]>temp){
+arr[j+1]=arr[j];
+j=j-1;
+
+}
+arr[j+1]=temp;
+
+}
+for(int q=0;q<n;q++){
+System.out.println(arr[q]);
+}
+}
+
+}
+class bubble{
+public void bubl(){
+int n,temp,arr[];
+Scanner sc =new Scanner (System.in);
+System.out.println("enter bubble element");
+n=sc.nextInt();
+arr=new int[n];
+System.out.println("enter " +n +" numbers");
+for(int k=0;k<n;k++){
+arr[k]=sc.nextInt();
+}
+System.out.println("Sorted numbers");
+for(int i=0;i<n;i++){
+for(int j=0;j<n-i-1;j++){
+if (arr[j]>arr[j+1]){
+temp=arr[j];
+arr[j]=arr[j+1];
+arr[j+1]=temp;
+
+}
+
+}
+
+}
+for(int p=0;p<n;p++){
+System.out.println(arr[p]);
+}
+}
+}
+public class Algorithm {
+
+   
+    public static void main(String[] args) {
+        lenear l=new lenear();
+        l.search();
+        binary x=new binary();
+        x.bin();
+        selection y =new selection();
+        y.sel();
+        bubble b=new bubble();
+        b.bubl();
+       
+        insertion i = new insertion();
+        i.insr();
+    }
+    
+}
